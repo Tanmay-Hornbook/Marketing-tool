@@ -16,5 +16,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.organisation=tanmay-hornbook
+            -Dsonar.organization=tanmay-hornbook
             -Dsonar.projectKey=Marketing-tool
