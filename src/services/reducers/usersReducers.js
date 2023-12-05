@@ -77,8 +77,9 @@ const usersReducer = (state = initialState, action) => {
     /////////////////
     case USER_ACTION_TYPES.DELETE_USER_SUCCESS:
       const filteredUsers = state.users.data.filter((user) => {
-        user.id !== action.payload;
+        return user.id !== action.payload;
       });
+      
       return {
         ...state,
         users: filteredUsers,
