@@ -153,10 +153,6 @@ const ProductList = () => {
     setView({ add: false, edit: true });
   };
 
-  useEffect(() => {
-    reset(formData);
-  }, [formData, reset]);
-
   // selects all the products
   const selectorCheck = (e) => {
     let newData;
@@ -228,6 +224,10 @@ const ProductList = () => {
     reset,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    reset(formData);
+  }, [formData, reset]);
 
   return (
     <React.Fragment>
