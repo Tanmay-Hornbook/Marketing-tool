@@ -81,7 +81,7 @@ const usersReducer = (state = initialState, action) => {
       });
       return {
         ...state,
-        users: filteredUsers(),
+        users: filteredUsers,
         loading: false,
       };
 
