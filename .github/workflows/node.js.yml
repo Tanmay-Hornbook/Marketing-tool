@@ -31,5 +31,5 @@ jobs:
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
-          SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
