@@ -91,12 +91,12 @@ const UserProfileRegularPage = () => {
       status: userData.status,
     };
     loginUserData && setFormData(profileData);
-  }, [userData]);
+  }, [userData, loginUserData]);
 
   // * Getting login user data from API
   useEffect(() => {
     dispatch(getSingleUserRequest(loginUserData.id));
-  }, []);
+  }, [dispatch]);
 
   return (
     <React.Fragment>
