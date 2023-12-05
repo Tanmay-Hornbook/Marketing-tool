@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "../../../../layout/head/Head";
 import Content from "../../../../layout/content/Content";
 import Moment from "react-moment";
@@ -90,7 +90,7 @@ const Company = ({ direction }) => {
   //////////////////////
   useEffect(() => {
     dispatch(getUsersRequest(currentPage));
-  }, [currentPage]);
+  }, [currentPage, dispatch]);
 
   // * Getting single user data
   /////////////////////////////
@@ -248,7 +248,7 @@ const Company = ({ direction }) => {
             </BlockHeadContent>
             <BlockHeadContent>
               <div className="toggle-wrap nk-block-tools-toggle">
-                <a
+                {/* <a
                   className="btn btn-icon btn-trigger toggle-expand me-n1"
                   onClick={(e) => {
                     e.preventDefault();
@@ -256,7 +256,7 @@ const Company = ({ direction }) => {
                   }}
                 >
                   <Icon name="more-v"></Icon>
-                </a>
+                </a> */}
                 <div className="toggle-expand-content" style={{ display: smOption ? "block" : "none" }}>
                   <ul className="nk-block-tools g-3">
                     <li>
