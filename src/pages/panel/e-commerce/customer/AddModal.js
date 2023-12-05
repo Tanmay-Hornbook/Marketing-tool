@@ -4,15 +4,16 @@ import { Icon, Col, Button, RSelect } from "../../../../components/Component";
 import { useForm } from "react-hook-form";
 
 const AddModal = ({ modal, closeModal, onSubmit, formData, setFormData, filterStatus }) => {
-  useEffect(() => {
-    reset(formData);
-  }, [formData, reset]);
   const {
     reset,
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    reset(formData);
+  }, [formData, reset]);
   return (
     <Modal isOpen={modal} toggle={() => closeModal()} className="modal-dialog-centered" size="lg">
       <ModalBody>

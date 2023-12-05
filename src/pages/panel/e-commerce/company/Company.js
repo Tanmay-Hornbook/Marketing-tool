@@ -49,7 +49,7 @@ const Company = ({ direction }) => {
   const [fieldData, setFieldData] = useState(defaultData);
   const [isEdit, setIsEdit] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [smOption, setSmOption] = useState(false);
+  // const [smOption, setSmOption] = useState(false);
   const [view, setView] = useState({
     add: false,
   });
@@ -258,46 +258,46 @@ const Company = ({ direction }) => {
                   <Icon name="more-v"></Icon>
                 </a> */}
                 {/* <div className="toggle-expand-content" style={{ display: smOption ? "block" : "none" }}> */}
-                  <ul className="nk-block-tools g-3">
-                    <li>
-                      <div className="form-control-wrap">
-                        <div className="form-icon form-icon-right">
-                          <Icon name="search"></Icon>
-                        </div>
-                        <input
-                          type="text"
-                          className="form-control"
-                          onChange={(e) => {
-                            onSearch(e);
-                          }}
-                          placeholder="Search Users..."
-                        />
+                <ul className="nk-block-tools g-3">
+                  <li>
+                    <div className="form-control-wrap">
+                      <div className="form-icon form-icon-right">
+                        <Icon name="search"></Icon>
                       </div>
-                    </li>
-                    <li className="nk-block-tools-opt">
-                      <Button
-                        className="toggle btn-icon d-md-none"
-                        color="primary"
-                        onClick={() => {
-                          toggle("add");
+                      <input
+                        type="text"
+                        className="form-control"
+                        onChange={(e) => {
+                          onSearch(e);
                         }}
-                      >
-                        <Icon name="plus"></Icon>
-                      </Button>
-                      <Button
-                        className="toggle d-none d-md-inline-flex"
-                        color="primary"
-                        onClick={() => {
-                          setFieldData(defaultData);
-                          toggle("add");
-                        }}
-                      >
-                        <Icon name="plus"></Icon>
-                        <span>Add User</span>
-                      </Button>
-                    </li>
-                  </ul>
-                </div>
+                        placeholder="Search Users..."
+                      />
+                    </div>
+                  </li>
+                  <li className="nk-block-tools-opt">
+                    <Button
+                      className="toggle btn-icon d-md-none"
+                      color="primary"
+                      onClick={() => {
+                        toggle("add");
+                      }}
+                    >
+                      <Icon name="plus"></Icon>
+                    </Button>
+                    <Button
+                      className="toggle d-none d-md-inline-flex"
+                      color="primary"
+                      onClick={() => {
+                        setFieldData(defaultData);
+                        toggle("add");
+                      }}
+                    >
+                      <Icon name="plus"></Icon>
+                      <span>Add User</span>
+                    </Button>
+                  </li>
+                </ul>
+              </div>
               {/* </div> */}
             </BlockHeadContent>
           </BlockBetween>
