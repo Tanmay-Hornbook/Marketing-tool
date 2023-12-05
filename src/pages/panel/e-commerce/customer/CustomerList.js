@@ -15,7 +15,6 @@ import {
   BlockHeadContent,
   BlockTitle,
   Icon,
-  Col,
   UserAvatar,
   PaginationComponent,
   Button,
@@ -23,7 +22,6 @@ import {
   DataTableRow,
   DataTableItem,
   TooltipComponent,
-  RSelect,
   PreviewAltCard,
 } from "../../../../components/Component";
 import { filterStatus, CustomerData } from "./CustomerData";
