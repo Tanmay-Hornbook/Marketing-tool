@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Collapse } from "reactstrap";
+const { Collapse } = require("reactstrap");
 
-const Accordion = ({ className, variation, ...props }) => {
+const Accordion = ({ className, variation }) => {
   const [isOpen, setIsOpen] = useState("1");
 
   const toggleCollapse = (param) => {
