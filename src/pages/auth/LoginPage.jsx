@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../../images/logo.png";
 import LogoDark from "../../images/logo-dark.png";
 import Head from "../../layout/head/Head";
 import AuthFooter from "./AuthFooter";
-import { Block, BlockContent, BlockHead, BlockTitle, Button, Icon, PreviewCard } from "../../components/Component";
+import { Block, BlockContent, BlockHead, BlockTitle, Button, PreviewCard } from "../../components/Component";
 import { Form, Spinner } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Field from "../../components/input/field/Field";
@@ -65,14 +65,14 @@ const LoginPage = () => {
   };
 
   // * Redirecting User to company dashboard if user is logged in
+  const fetchedToken = localStorage.getItem("accessToken");
   useEffect(() => {
-    const fetchedToken = localStorage.getItem("accessToken");
     if (fetchedToken !== null) {
       navigateTo("/company");
     } else {
       navigateTo("/");
     }
-  }, []);
+  }, [fetchedToken]);
 
   return (
     <>
