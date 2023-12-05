@@ -31,8 +31,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
         with:
-          Dsonar.organization=tanmay-hornbook
-          Dsonar.projectKey=Marketing-tool
+          -Dsonar.organization=tanmay-hornbook
+          -Dsonar.projectKey=Marketing-tool
 
       - name: Deploy with gh-pages
         run: |
