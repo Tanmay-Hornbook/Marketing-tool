@@ -93,7 +93,7 @@ const CompanyProfileRegular = () => {
   // * Function for getting company data from API
   useEffect(() => {
     dispatch(getCompanyRequest());
-  }, []);
+  }, [dispatch]);
 
   // * Function for setting values to input fields from API
   useEffect(() => {
