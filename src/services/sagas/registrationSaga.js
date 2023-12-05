@@ -4,7 +4,7 @@ import { registrationSuccess, registrationFailure } from "../actions/registratio
 import axiosInstance from "../../utils/axiosConfig";
 
 function* registrationRequest(action) {
-  return axiosInstance.post("api/company", action);
+  return yield axiosInstance.post("api/company", action);
 }
 
 function* handleRegistrationRequest(action) {
