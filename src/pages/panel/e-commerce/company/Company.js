@@ -72,7 +72,7 @@ const Company = ({ direction }) => {
     fieldError: fieldError,
     isOpenDropdown: dropdownOpen,
     ToggleDropDown: () => {
-      toggleDropdown;
+      toggleDropdown();
     },
     direction: direction,
     role_name: "role_id",
