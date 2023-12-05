@@ -21,7 +21,6 @@ const LoginPage = () => {
     password: "",
   });
   const [fieldError, setFieldError] = useState("");
-  const [passState, setPassState] = useState(false);
   const reg = /^[A-Za-z0-9_]{5,}@[A-Za-z]{4,}[.]{1}[A-Za-z]{1,5}$/;
   const inputClasses = "form-control-lg form-control";
 
@@ -137,14 +136,6 @@ const LoginPage = () => {
                 </Link>
               </div>
               <div className="form-control-wrap">
-                <a
-                  href="#password"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setPassState(!passState);
-                  }}
-                  className={`form-icon lg form-icon-right passcode-switch ${passState ? "is-hidden" : "is-shown"}`}
-                ></a>
                 <Field
                   type="password"
                   value={loginData.password}
