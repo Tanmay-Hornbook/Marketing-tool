@@ -71,7 +71,7 @@ const LoginPage = () => {
     } else {
       navigateTo("/");
     }
-  }, [fetchedToken]);
+  }, [fetchedToken, navigateTo]);
 
   return (
     <>
