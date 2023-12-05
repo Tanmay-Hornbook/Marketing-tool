@@ -1,8 +1,8 @@
 {
-  "name": "dashlitereact-demo2",
-  "homepage": "https://react.dashlite.net/demo2/",
+  "name": "Marketing-tool",
+  "homepage": "https://Tanmay-Hornbook.github.io/Marketing-tool",
   "version": "1.7.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@fullcalendar/bootstrap5": "^5.11.3",
@@ -55,7 +55,6 @@
     "react-toastify": "^8.2.0",
     "reactstrap": "^9.1.5",
     "redux-saga": "^1.2.3",
-    "redux-thunk": "^2.4.2",
     "sass": "1.56.1",
     "simplebar-react": "^2.4.3",
     "slick-carousel": "^1.8.1",
@@ -64,6 +63,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
