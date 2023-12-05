@@ -96,7 +96,7 @@ const UserProfileRegularPage = () => {
   // * Getting login user data from API
   useEffect(() => {
     dispatch(getSingleUserRequest(loginUserData.id));
-  }, [dispatch]);
+  }, [dispatch, loginUserData.id]);
 
   return (
     <React.Fragment>
