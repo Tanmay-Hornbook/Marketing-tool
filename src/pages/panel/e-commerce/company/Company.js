@@ -257,7 +257,7 @@ const Company = ({ direction }) => {
                 >
                   <Icon name="more-v"></Icon>
                 </a> */}
-                <div className="toggle-expand-content" style={{ display: smOption ? "block" : "none" }}>
+                {/* <div className="toggle-expand-content" style={{ display: smOption ? "block" : "none" }}> */}
                   <ul className="nk-block-tools g-3">
                     <li>
                       <div className="form-control-wrap">
@@ -298,7 +298,7 @@ const Company = ({ direction }) => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              {/* </div> */}
             </BlockHeadContent>
           </BlockBetween>
         </BlockHead>
