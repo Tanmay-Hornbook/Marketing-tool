@@ -19,7 +19,7 @@ import axiosInstance from "../../utils/axiosConfig";
 // * GET All USERS
 //////////////
 function* getUsersFromAPI(action) {
-  return axiosInstance.get(`api/company/user/getall?page=${action}&limit=6`, action);
+  return yield axiosInstance.get(`api/company/user/getall?page=${action}&limit=6`, action);
 }
 
 function* handleGetUsersRequest(action) {
@@ -44,7 +44,7 @@ export function* watchGetUsersRequest() {
 // * GET SINGLE USER
 ////////////////////
 function* getSingleUserRequest(action) {
-  return axiosInstance.get(`api/company/user/view/${action}`, action);
+  return yield axiosInstance.get(`api/company/user/view/${action}`, action);
 }
 
 function* handleGetSingleUserRequest(action) {
@@ -68,7 +68,7 @@ export function* watchGetSingleUserRequest() {
 // * CREATE USERS
 /////////////////
 function* createUserRequest(action) {
-  return axiosInstance.post("api/company/user/create", action);
+  return yield axiosInstance.post("api/company/user/create", action);
 }
 
 function* handleCreateUserRequest(action) {
@@ -94,7 +94,7 @@ export function* watchCreateUsersRequest() {
 // * EDIT USERS
 ///////////////
 function* updateUserRequest(action) {
-  return axiosInstance.put(`api/company/user/edit/${action.user_id}`, action?.payload);
+  return yield axiosInstance.put(`api/company/user/edit/${action.user_id}`, action?.payload);
 }
 
 function* handleUpdateUserRequest(action) {
@@ -119,7 +119,7 @@ export function* watchUpdateUserRequest() {
 // * DELETE USERS
 /////////////////
 function* deleteUserRequest(action) {
-  return axiosInstance.delete(`api/company/user/delete/${action.payload}`, action);
+  return yield axiosInstance.delete(`api/company/user/delete/${action.payload}`, action);
 }
 
 function* handleDeleteUserRequest(action) {
