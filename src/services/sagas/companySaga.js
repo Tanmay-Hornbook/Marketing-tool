@@ -4,7 +4,7 @@ import { getCompanySuccess, getCompanyFailure } from "../actions/companyActions"
 import axiosInstance from "../../utils/axiosConfig";
 
 function* getCompanyRequest(action) {
-  return axiosInstance.get("api/company/view", action);
+  return yield axiosInstance.get("api/company/view", action);
 }
 
 function* handleGetCompanyRequest(action) {
