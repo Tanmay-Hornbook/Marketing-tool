@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-const { Collapse } = require("reactstrap");
+import { Collapse } from "reactstrap";
 
 const Accordion = ({ className, variation }) => {
   const [isOpen, setIsOpen] = useState("1");
