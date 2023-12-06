@@ -4,6 +4,7 @@
   "version": "1.7.0",
   "private": false,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@fullcalendar/bootstrap5": "^5.11.3",
     "@fullcalendar/core": "^5.11.3",
