@@ -91,6 +91,9 @@
   "description": "**Documentation for React Dashlite application**",
   "main": "index.js",
   "devDependencies": {
+    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-react": "^7.23.3",
+    "babel-jest": "^29.7.0",
     "mocha": "^10.2.0"
   },
   "keywords": [],
