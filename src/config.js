@@ -1,2 +1,2 @@
-export const API_URL = "http://ec2-54-189-113-3.us-west-2.compute.amazonaws.com/";
+export const API_URL = "http://192.168.1.24:4000/";
 
