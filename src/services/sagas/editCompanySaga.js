@@ -1,6 +1,7 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import { EDIT_COMPANY_ACTION_TYPES } from "../actions/constants/editCompanyActionConstants";
 import { editCompanySuccess, editCompanyFailure } from "../actions/editCompanyActions";
+import { getCompanyRequest } from "../actions/companyActions";
 import axiosInstance from "../../utils/axiosConfig";
 
 function* editCompanyRequest(action) {
@@ -11,8 +12,9 @@ function* handleEditCompanyRequest(action) {
   try {
     let response = yield call(editCompanyRequest, action.payload);
     const data = yield response;
-    if (data.status === 201) {
+    if (data.status === 200) {
       yield put(editCompanySuccess(data.data));
+      yield put(getCompanyRequest());
     } else {
       yield put(editCompanyFailure("Could not update company"));
     }

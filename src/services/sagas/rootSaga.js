@@ -16,6 +16,8 @@ import { watchGetCompanyRequest } from "./companySaga";
 
 import { watchEditCompanyRequest } from "./editCompanySaga";
 
+import { watchGetRoleRequest } from "./getRoleSaga";
+
 export default function* rootSaga() {
   yield all([
     watchGetUsersRequest(),
@@ -27,5 +29,6 @@ export default function* rootSaga() {
     watchRegistrationRequest(),
     watchGetCompanyRequest(),
     watchEditCompanyRequest(),
+    watchGetRoleRequest(),
   ]);
 }

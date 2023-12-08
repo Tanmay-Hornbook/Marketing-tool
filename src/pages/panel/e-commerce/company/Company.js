@@ -25,6 +25,7 @@ import {
   deleteUserRequest,
   updateUserRequest,
 } from "../../../../services/actions/usersActions";
+import { getRoleRequest } from "../../../../services/actions/getRoleActions";
 import { useSelector } from "react-redux";
 
 const Company = ({ direction }) => {
@@ -37,6 +38,7 @@ const Company = ({ direction }) => {
     role_id: 2,
   };
   const dispatch = useDispatch();
+  const role = useSelector((state) => state.role.role);
   const usersData = useSelector((state) => state.users.users);
   const [updatedData, setUpdatedData] = useState(usersData?.data);
   const userData = useSelector((state) => state.users.user);
@@ -106,6 +108,15 @@ const Company = ({ direction }) => {
     setTotalItems(usersData?.totalItems);
     setUpdatedData(usersData?.data);
   }, [usersData]);
+
+  // * Function for getting user role
+  ///////////////////////////////////
+  useEffect(() => {
+    const id = updatedData?.map((user) => {
+      return user.role_id;
+    });
+    dispatch(getRoleRequest(id));
+  }, [updatedData, dispatch]);
 
   //* Function for toggling modal
   ///////////////////////////////
@@ -372,7 +383,7 @@ const Company = ({ direction }) => {
                                 </DropdownItem>
                               </li>
                               <li>
-                                {item.role_id !== 1 && (
+                                {role.role !== 'owner' && (
                                   <DropdownItem
                                     onClick={() => {
                                       deleteUser(item.id);

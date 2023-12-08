@@ -2,7 +2,7 @@ import { call, put, takeLatest } from "redux-saga/effects";
 import { LOGIN_ACTION_TYPES } from "../actions/constants/loginActionsConstants";
 
 import { loginSuccess, loginFailure } from "../actions/loginActions";
-
+import { getUsersRequest } from "../actions/usersActions";
 import axiosInstance from "../../utils/axiosConfig";
 
 function* loginRequest(action) {
@@ -18,6 +18,7 @@ function* handleLoginRequest(action) {
       localStorage.setItem("accessToken", token);
       localStorage.setItem("loginData", JSON.stringify(data.data.data));
       yield put(loginSuccess(data.data.data));
+      yield put(getUsersRequest(1));
     } else {
       yield put(loginFailure("Could not login"));
     }

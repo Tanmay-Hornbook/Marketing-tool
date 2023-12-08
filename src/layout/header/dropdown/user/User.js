@@ -14,7 +14,7 @@ const User = () => {
   };
 
   const loginData = JSON.parse(localStorage.getItem("loginData"));
-
+  
   return (
     <Dropdown isOpen={open} className="user-dropdown" toggle={toggle}>
       <DropdownToggle
@@ -52,7 +52,7 @@ const User = () => {
                 View Profile
               </LinkItem>
             </Link>
-            {loginData.role_id === 1 && (
+            {loginData.role === 'owner' && (
               <Link to="/company-profile-regular">
                 <LinkItem link="/company-profile-regular" icon="dashboard">
                   View Company

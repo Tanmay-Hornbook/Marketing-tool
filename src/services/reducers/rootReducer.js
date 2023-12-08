@@ -4,14 +4,14 @@ import loginReducer from "./loginReducer";
 import registrationReducer from "./registrationReducer";
 import companyReducer from "./companyReducer";
 import editCompanyReducer from "./editCompanyReducer";
-import searchReducer from "./searchReducer";
+import getRoleReducer from "./getRoleReducer";
 const rootReducer = combineReducers({
   users: usersReducer,
   login: loginReducer,
   registration: registrationReducer,
   company: companyReducer,
   editCompany: editCompanyReducer,
-  search: searchReducer,
+  role: getRoleReducer,
 });
 
 export default rootReducer;
