@@ -27,6 +27,7 @@ import {
 } from "../../../../services/actions/usersActions";
 import { getRoleRequest } from "../../../../services/actions/getRoleActions";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const Company = ({ direction }) => {
   const defaultData = {
@@ -37,6 +38,8 @@ const Company = ({ direction }) => {
     status: "Active",
     role_id: 2,
   };
+  const navigateTo = useNavigate();
+  const fetchedToken = localStorage.getItem("accessToken");
   const dispatch = useDispatch();
   const role = useSelector((state) => state.role.role);
   const usersData = useSelector((state) => state.users.users);
@@ -117,6 +120,14 @@ const Company = ({ direction }) => {
     });
     dispatch(getRoleRequest(id));
   }, [updatedData, dispatch]);
+
+  // * Redirecting to login page if user has no token
+  ///////////////////////////////////////////////////
+  useEffect(() => {
+    fetchedToken === null && navigateTo("/");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("loginData");
+  }, [fetchedToken]);
 
   //* Function for toggling modal
   ///////////////////////////////
@@ -383,7 +394,7 @@ const Company = ({ direction }) => {
                                 </DropdownItem>
                               </li>
                               <li>
-                                {role.role !== 'owner' && (
+                                {role.role !== "owner" && (
                                   <DropdownItem
                                     onClick={() => {
                                       deleteUser(item.id);

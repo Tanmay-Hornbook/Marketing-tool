@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useDeferredValue, useEffect, useState } from "react";
 import Logo from "../../images/logo.png";
 import LogoDark from "../../images/logo-dark.png";
 import Head from "../../layout/head/Head";
 import AuthFooter from "./AuthFooter";
-import { Block, BlockContent, BlockHead, BlockTitle, Button, Icon, PreviewCard } from "../../components/Component";
+import { Block, BlockContent, BlockHead, BlockTitle, Button, PreviewCard } from "../../components/Component";
 import { Form, Spinner } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Field from "../../components/input/field/Field";
@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { loginRequest } from "../../services/actions/loginActions";
 
 const LoginPage = () => {
+  const fetchedToken = localStorage.getItem("accessToken");
   const dispatch = useDispatch();
   const [forceUpdate, setForceUpdate] = useState(false);
   const loading = useSelector((state) => state.login.loading);
@@ -53,26 +54,21 @@ const LoginPage = () => {
   };
 
   // * Function for submitting data to API Server
+  ///////////////////////////////////////////////
   const handleSubmit = () => {
     const errors = validateForm();
     if (Object.keys(errors).length > 0) {
       setFieldError({ ...fieldError, ...errors });
     } else {
       dispatch(loginRequest(loginData));
-      navigateTo("/company");
       setForceUpdate(!forceUpdate);
     }
   };
 
-  // * Redirecting User to company dashboard if user is logged in
   useEffect(() => {
-    const fetchedToken = localStorage.getItem("accessToken");
-    if (fetchedToken !== null) {
-      navigateTo("/company");
-    } else {
-      navigateTo("/");
-    }
-  }, []);
+    fetchedToken !== null && navigateTo("/company");
+    fetchedToken === null && navigateTo("/");
+  }, [fetchedToken]);
 
   return (
     <>
@@ -170,13 +166,7 @@ const LoginPage = () => {
               </div>
             </div>
             <div className="form-group">
-              <Button
-                size="lg"
-                className="btn-block"
-                color="primary"
-                type="submit"
-                disabled={loading ? !loading : false}
-              >
+              <Button size="lg" className="btn-block" color="primary" type="submit" disabled={loading ? true : false}>
                 {loading ? <Spinner></Spinner> : "Sign in"}
               </Button>
             </div>

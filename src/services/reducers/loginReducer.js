@@ -1,7 +1,7 @@
 import { LOGIN_ACTION_TYPES } from "../actions/constants/loginActionsConstants";
 
 const initialState = {
-  user: {},
+  user: [],
   loading: false,
   err: null,
 };

@@ -151,3 +151,9 @@ export const bulkActionOptions = [
   { value: "delete", label: "Delete User" },
 ];
 
+// * Gets Access Token from local storage
+/////////////////////////////////////////
+export const getAccessToken = () => {
+  const accessToken = localStorage.getItem("accessToken");
+  return accessToken;
+};

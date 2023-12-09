@@ -14,10 +14,12 @@ function* handleLoginRequest(action) {
     let response = yield call(loginRequest, action.payload);
     const data = yield response;
     if (data.status === 200) {
-      const token = `Bearer ${data.data.tokens.access.token}`;
-      localStorage.setItem("accessToken", token);
-      localStorage.setItem("loginData", JSON.stringify(data.data.data));
-      yield put(loginSuccess(data.data.data));
+      const accessToken = `Bearer ${data.data.tokens.access.token}`;
+      localStorage.setItem("accessToken", accessToken);
+      const refreshToken = `Bearer ${data.data.tokens.refresh.token}`;
+      localStorage.setItem("refreshToken", refreshToken);
+      localStorage.setItem("loginData", JSON.stringify(data.data));
+      yield put(loginSuccess(data.data));
       yield put(getUsersRequest(1));
     } else {
       yield put(loginFailure("Could not login"));

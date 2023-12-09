@@ -23,6 +23,7 @@
     "chart.js": "^4.1.2",
     "chartjs": "^0.3.24",
     "classnames": "^2.3.2",
+    "cors": "^2.8.5",
     "export-from-json": "^1.7.0",
     "gh-pages": "^6.1.0",
     "html-react-parser": "^1.4.14",
@@ -91,6 +92,10 @@
   "description": "**Documentation for React Dashlite application**",
   "main": "index.js",
   "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/eslint-parser": "^7.23.3",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.23.5",
     "mocha": "^10.2.0"
   },
   "keywords": [],
