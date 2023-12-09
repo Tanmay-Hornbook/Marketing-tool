@@ -125,8 +125,10 @@ const Company = ({ direction }) => {
   ///////////////////////////////////////////////////
   useEffect(() => {
     fetchedToken === null && navigateTo("/");
-    localStorage.removeItem("refreshToken");
-    localStorage.removeItem("loginData");
+    if (fetchedToken === null) {
+      localStorage.removeItem("refreshToken");
+      localStorage.removeItem("loginData");
+    }
   }, [fetchedToken]);
 
   //* Function for toggling modal
