@@ -4,6 +4,7 @@ import { LOGIN_ACTION_TYPES } from "../actions/constants/loginActionsConstants";
 import { loginSuccess, loginFailure } from "../actions/loginActions";
 import { getUsersRequest } from "../actions/usersActions";
 import axiosInstance from "../../utils/axiosConfig";
+import { storeAccessToken, storeLoginData, storeRefreshToken } from "../../utils/Utils";
 
 function* loginRequest(action) {
   return axiosInstance.post("api/auth/login", action);
@@ -14,11 +15,11 @@ function* handleLoginRequest(action) {
     let response = yield call(loginRequest, action.payload);
     const data = yield response;
     if (data.status === 200) {
-      const accessToken = `Bearer ${data.data.tokens.access.token}`;
-      localStorage.setItem("accessToken", accessToken);
-      const refreshToken = `Bearer ${data.data.tokens.refresh.token}`;
-      localStorage.setItem("refreshToken", refreshToken);
-      localStorage.setItem("loginData", JSON.stringify(data.data));
+      const accessToken = data.data.tokens.access.token;
+      storeAccessToken(accessToken);
+      const refreshToken = data.data.tokens.refresh.token;
+      storeRefreshToken(refreshToken);
+      storeLoginData(JSON.stringify(data.data));
       yield put(loginSuccess(data.data));
       yield put(getUsersRequest(1));
     } else {

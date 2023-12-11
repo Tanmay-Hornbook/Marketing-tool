@@ -151,9 +151,39 @@ export const bulkActionOptions = [
   { value: "delete", label: "Delete User" },
 ];
 
-// * Gets Access Token from local storage
+// * Function for Getting Access Token from local storage
 /////////////////////////////////////////
 export const getAccessToken = () => {
   const accessToken = localStorage.getItem("accessToken");
   return accessToken;
+};
+
+// * Function for storing access token to local storage
+///////////////////////////////////////////////////////
+export const storeAccessToken = (token) => {
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem("accessToken", token);
+  } else {
+    console.log("local storage is not supported on this browser");
+  }
+};
+
+// * Function for storing refresh token to local storage
+////////////////////////////////////////////////////////
+export const storeRefreshToken = (token) => {
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem("refreshToken", token);
+  } else {
+    console.log("local storage is not supported on this browser");
+  }
+};
+
+// * Function for storing refresh token to local storage
+////////////////////////////////////////////////////////
+export const storeLoginData = (data) => {
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem("loginData", data);
+  } else {
+    console.log("local storage is not supported on this browser");
+  }
 };
