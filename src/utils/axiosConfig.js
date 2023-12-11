@@ -1,18 +1,27 @@
 import axios from "axios";
 import { API_URL } from "../config";
+import { getAccessToken } from "./Utils";
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
+  headers: {
+    "Content-type": "application/json",
+  },
 });
 
-axiosInstance.interceptors.request.use((config) => {
-  let token = localStorage.getItem("accessToken");
+axiosInstance.interceptors.request.use(
+  async (config) => {
+    let token = await getAccessToken();
 
-  if (token) {
-     config.headers['Authorization'] = token;   
+    if (token) {
+      config.headers["Authorization"] = token;
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
-
-  return config;
-});
+);
 
 export default axiosInstance;

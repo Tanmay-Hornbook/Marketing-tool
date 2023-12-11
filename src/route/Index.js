@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { CustomerProvider } from "../pages/panel/e-commerce/customer/CustomerContext";
 import LoginPage from "../pages/auth/LoginPage";
@@ -20,8 +20,6 @@ const Router = () => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
-
-  
 
   return (
     <Routes>
