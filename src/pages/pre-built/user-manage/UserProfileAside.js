@@ -14,10 +14,10 @@ const UserProfileAside = ({ updateSm, sm }) => {
     <div className="card-inner-group">
       <div className="card-inner">
         <div className="user-card">
-          <UserAvatar text={findUpper(loginData.first_name + loginData.last_name)} theme="primary" />
+          <UserAvatar text={findUpper(loginData.data.first_name + loginData.data.last_name)} theme="primary" />
           <div className="user-info">
-            <span className="lead-text">{loginData.first_name + loginData.last_name}</span>
-            <span className="sub-text">{loginData.email}</span>
+            <span className="lead-text">{loginData.data.first_name + loginData.data.last_name}</span>
+            <span className="sub-text">{loginData.data.email}</span>
           </div>
           <div className="user-action">
             <UncontrolledDropdown>
