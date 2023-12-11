@@ -4,7 +4,6 @@
   "version": "1.7.0",
   "private": false,
   "dependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@fullcalendar/bootstrap5": "^5.11.3",
     "@fullcalendar/core": "^5.11.3",
@@ -91,6 +90,10 @@
   "description": "**Documentation for React Dashlite application**",
   "main": "index.js",
   "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/eslint-parser": "^7.23.3",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.23.5",
     "mocha": "^10.2.0"
   },
   "keywords": [],
