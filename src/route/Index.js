@@ -1,12 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { CustomerProvider } from "../pages/panel/e-commerce/customer/CustomerContext";
 import LoginPage from "../pages/auth/LoginPage";
-import EcomSupport from "../pages/panel/e-commerce/support/Messages";
-import EcomProducts from "../pages/panel/e-commerce/product/ProductList";
-import EcomCustomer from "../pages/panel/e-commerce/customer/CustomerList";
-import EcomCustomerDetails from "../pages/panel/e-commerce/customer/CustomerDetails";
-import EcomSettings from "../pages/panel/e-commerce/settings/Settings";
 import Company from "../pages/panel/e-commerce/company/Company";
 import Layout from "../layout/Index";
 import CompanyRegistration from "../pages/auth/CompanyRegistration";
@@ -15,6 +9,10 @@ import UserProfileRegularPage from "../pages/pre-built/user-manage/UserProfileRe
 import UserProfileSettingPage from "../pages/pre-built/user-manage/UserProfileSetting";
 import UserProfileNotificationPage from "../pages/pre-built/user-manage/UserProfileNotification";
 import CompanyProfileRegular from "../pages/pre-built/company-manage/CompanyProfileRegular";
+import Campaigns from "../pages/panel/e-commerce/campaigns/Campaigns";
+import Templates from "../pages/panel/e-commerce/templates/Templates";
+import Contacts from "../pages/panel/e-commerce/contacts/Contacts";
+import Groups from "../pages/panel/e-commerce/Groups/Groups";
 const Router = () => {
   const location = useLocation();
   useLayoutEffect(() => {
@@ -32,13 +30,10 @@ const Router = () => {
       <Route path="/user-profile-notification" element={<UserProfileNotificationPage />}></Route>
       <Route path={`${process.env.PUBLIC_URL}`} element={<Layout />}>
         <Route path="/company" element={<Company />}></Route>
-        <Route path="/products" element={<EcomProducts />}></Route>
-        <Route path="/support" element={<EcomSupport />}></Route>
-        <Route path="/settings" element={<EcomSettings />}></Route>
-        <Route element={<CustomerProvider />}>
-          <Route path="customer" element={<EcomCustomer />}></Route>
-          <Route path="customer-details/:customerId" element={<EcomCustomerDetails />}></Route>
-        </Route>
+        <Route path="/campaigns" element={<Campaigns />}></Route>
+        <Route path="/contact" element={<Contacts />}></Route>
+        <Route path="/group" element={<Groups />}></Route>
+        <Route path="/template" element={<Templates />}></Route>
       </Route>
     </Routes>
   );

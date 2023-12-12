@@ -172,7 +172,7 @@ export const storeAccessToken = (token) => {
 ////////////////////////////////////////////////////////
 export const storeRefreshToken = (token) => {
   if (typeof localStorage !== "undefined") {
-    localStorage.setItem("refreshToken", token);
+    localStorage.setItem("refresh_token", token);
   } else {
     console.log("local storage is not supported on this browser");
   }

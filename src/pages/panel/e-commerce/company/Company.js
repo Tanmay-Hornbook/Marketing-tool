@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "../../../../layout/head/Head";
 import Content from "../../../../layout/content/Content";
 import Moment from "react-moment";
@@ -126,7 +126,7 @@ const Company = ({ direction }) => {
   useEffect(() => {
     fetchedToken === null && navigateTo("/");
     if (fetchedToken === null) {
-      localStorage.removeItem("refreshToken");
+      localStorage.removeItem("refresh_token");
       localStorage.removeItem("loginData");
     }
   }, [fetchedToken]);
@@ -263,7 +263,7 @@ const Company = ({ direction }) => {
 
   return (
     <>
-      <Head title="Hornbook"></Head>
+      <Head title="Users" />
       <Content>
         <BlockHead size="sm">
           <BlockBetween>
@@ -272,15 +272,6 @@ const Company = ({ direction }) => {
             </BlockHeadContent>
             <BlockHeadContent>
               <div className="toggle-wrap nk-block-tools-toggle">
-                <a
-                  className="btn btn-icon btn-trigger toggle-expand me-n1"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSmOption(!smOption);
-                  }}
-                >
-                  <Icon name="more-v"></Icon>
-                </a>
                 <div className="toggle-expand-content" style={{ display: smOption ? "block" : "none" }}>
                   <ul className="nk-block-tools g-3">
                     <li>
@@ -299,15 +290,6 @@ const Company = ({ direction }) => {
                       </div>
                     </li>
                     <li className="nk-block-tools-opt">
-                      <Button
-                        className="toggle btn-icon d-md-none"
-                        color="primary"
-                        onClick={() => {
-                          toggle("add");
-                        }}
-                      >
-                        <Icon name="plus"></Icon>
-                      </Button>
                       <Button
                         className="toggle d-none d-md-inline-flex"
                         color="primary"
@@ -434,7 +416,6 @@ const Company = ({ direction }) => {
             )}
           </PreviewAltCard>
         </Block>
-
         <Model {...modelProps} />
       </Content>
     </>

@@ -35,8 +35,8 @@ axiosInstance.interceptors.response.use(
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
-        const refreshToken = localStorage.getItem("refreshToken");
-        const response = await axiosInstance.post("api/auth/refresh-token", refreshToken);
+        const refreshToken = localStorage.getItem("refresh_token");
+        const response = await axiosInstance.post("api/auth/refresh-token", { refresh_token: refreshToken });
         console.log("console_response", response);
         storeAccessToken(response.data);
         return axiosInstance(originalRequest);
@@ -45,6 +45,7 @@ axiosInstance.interceptors.response.use(
         return Promise.reject(error);
       }
     }
+    return Promise.reject(error);
   }
 );
 export default axiosInstance;
